@@ -468,7 +468,7 @@ if st.session_state['logged_in']:
     else:
         schooladmin_page()
 else:
-    choice = st.sidebar.selectbox("Choose Action", ["🔑Sign In", "📝Sign Up", "📖Tutorial"], key="auth_action")
+    choice = st.sidebar.selectbox("Choose Action", ["Sign In", "Sign Up", "Tutorial"], key="auth_action")
     if choice == "Sign In":
         sign_in()
     elif choice == "Sign Up":
