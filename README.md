@@ -63,25 +63,4 @@ your_password = "your-email-password"
 
 api_key = "your-whatsapp-api-key"
 
-# Whatsapps and Emails Blast using streamlit and nodejs(Laravel) 
-### Register and scan your Whatsapp number active here: 
-   [wanotif.aaviaya.cloud/login](https://wanotif.aaviaya.cloud/login)
-
-### A step by step installing dependencies
-#### Get the API WA from [wanotif.aaviaya.cloud/login](https://wanotif.aaviaya.cloud/login), then put it on the script
-#### In your VS Code Terminal: install
-    pip install -r requirements.txt
-#### Run project
-    streamlit run app.py
-    
-### Create repository for pushing your Project on your github
-
-### Deploy the project on streamlit
-  [streamlit.io](https://streamlit.io/)
-#### Connect your Github and streamlit cloud
-#### copy and paste the app.py link
-#### Generate web link
-#### Done!
-
-### Good Luck!
 
