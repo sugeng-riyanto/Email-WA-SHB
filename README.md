@@ -47,7 +47,7 @@ Welcome to the Communication Channels App! This Streamlit application facilitate
 
 ### Prerequisites
 
-# Whatsapps and Emails Blast using streamlit and nodejs(Laravel) 
+
 ### Register and scan your Whatsapp number active here: 
    [wanotif.aaviaya.cloud/login](https://wanotif.aaviaya.cloud/login)
 
