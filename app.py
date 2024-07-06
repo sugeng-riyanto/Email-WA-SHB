@@ -294,7 +294,7 @@ def schooladmin_page():
 
                 Catatan:
                 <ul>
-                 <li>Jika ada pertanyaan atau hendak konfirmasi dapat menghubungi {schooladmin}:<a href="https://wa.me/62{sender_number}?text=Yth%20{schooladmin}%0ASaya%20mau%20bertanya%20atau%20konfirmasi%20perihal%3A%0A...%0ADemikian%20dan%20terima%20kasih.">Admin Sekolah via No. WhatsApp.</a></li>
+                 <li>Jika ada pertanyaan atau hendak konfirmasi dapat menghubungi {schooladmin}:<a href="https://wa.me/62{sender_number}?text=Yth%20{schooladmin}%0ASaya%20mau%20bertanya%20atau%20konfirmasi%20perihal%3A%0A...%0ADemikian%20dan%20terima%20kasih.">Click No. WhatsApp ini.</a></li>
                 </ul>
                 """
             elif invoice:
@@ -323,7 +323,7 @@ def schooladmin_page():
                 Catatan:
                 <ul>
                  <li>Bila Ibu/Bapak sudah melakukan pembayaran, mohon <strong>abaikan</strong> pesan ini.</li>
-                 <li>Jika ada pertanyaan atau hendak konfirmasi dapat menghubungi {schooladmin}:<a href="https://wa.me/62{sender_number}?text=Yth%20{schooladmin}%0ASaya%20mau%20bertanya%20atau%20konfirmasi%20perihal%3A%0A...%0ADemikian%20dan%20terima%20kasih.">Nomor Whatsapp Admin Sekolah.</a></li>
+                 <li>Jika ada pertanyaan atau hendak konfirmasi dapat menghubungi {schooladmin}:<a href="https://wa.me/62{sender_number}?text=Yth%20{schooladmin}%0ASaya%20mau%20bertanya%20atau%20konfirmasi%20perihal%3A%0A...%0ADemikian%20dan%20terima%20kasih.">Click Nomor Whatsapp ini.</a></li>
                 <ul>
                 """
             elif proof_payment:
@@ -357,7 +357,7 @@ def schooladmin_page():
                 Catatan:
                 <ul>
                 <li>Bila Ibu/Bapak sudah melakukan pembayaran, mohon <strong>abaikan</strong> pesan ini.</li>
-                <li>Jika ada pertanyaan atau hendak konfirmasi dapat menghubungi {schooladmin}:<a href="https://wa.me/62{sender_number}?text=Yth%20{schooladmin}%0ASaya%20mau%20bertanya%20atau%20konfirmasi%20perihal%3A%0A...%0ADemikian%20dan%20terima%20kasih.">Nomor Whatsapp Admin Sekolah ini.</a><li>
+                <li>Jika ada pertanyaan atau hendak konfirmasi dapat menghubungi {schooladmin}:<a href="https://wa.me/62{sender_number}?text=Yth%20{schooladmin}%0ASaya%20mau%20bertanya%20atau%20konfirmasi%20perihal%3A%0A...%0ADemikian%20dan%20terima%20kasih.">Click No. Whatsapp ini.</a><li>
                 <ul>
                 """
             else:
@@ -468,7 +468,7 @@ if st.session_state['logged_in']:
     else:
         schooladmin_page()
 else:
-    choice = st.sidebar.selectbox("Choose Action", ["Sign In", "Sign Up", "Tutorial"], key="auth_action")
+    choice = st.sidebar.selectbox("Choose Action", ["🔑Sign In", "📝Sign Up", "📖Tutorial"], key="auth_action")
     if choice == "Sign In":
         sign_in()
     elif choice == "Sign Up":
