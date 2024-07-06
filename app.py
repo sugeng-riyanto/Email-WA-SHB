@@ -52,7 +52,7 @@ def send_email(to_email, code):
     msg['From'] = your_email
     msg['To'] = to_email
     msg['Subject'] = "Your Unique Sign-In Code"
-    body = f"Your unique sign-in code is: {code}"
+    body = f"Your unique sign-in code is:{code}"
     msg.attach(MIMEText(body, 'plain'))
     
     server.sendmail(your_email, to_email, msg.as_string())
