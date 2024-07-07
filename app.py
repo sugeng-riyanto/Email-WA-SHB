@@ -70,7 +70,7 @@ def sign_up():
     
     if st.button("Sign Up"):
         if not re.match(r"^[0-9]{10,15}$", sender_number):
-            st.error("Invalid phone number. Please enter a valid phone number (10-15 digits).")
+            st.error("❌ Invalid phone number. Please enter a valid phone number (10-15 digits).")
             return
         if not re.match(r"[^@]+@[^@]+\.[^@]+", email_schooladmin):
             st.error("❌ Invalid email address. Please enter a valid email address.")
@@ -116,7 +116,7 @@ def sign_in():
                 st.session_state['role'] = user[5]
                 st.session_state['sender_number'] = user[2]
                 st.session_state['schooladmin'] = user[1]
-                st.success("✅ Sign in successful!")
+                st.success("✅ Sign in successful!, welcome {schooladmin} press Sign In button one more.")
             elif user[6] == unique_code:
                 cursor.execute("UPDATE users SET is_activated = 1 WHERE email_schooladmin = ?", (email_schooladmin,))
                 conn.commit()
@@ -124,7 +124,7 @@ def sign_in():
                 st.session_state['role'] = user[5]
                 st.session_state['sender_number'] = user[2]
                 st.session_state['schooladmin'] = user[1]
-                st.success("✅ Sign in successful!")
+                st.success("✅ Sign in successful!, welcome {schooladmin} press Sign In button one more.")
             else:
                 st.error("❌ Invalid unique code.")
         else:
