@@ -458,8 +458,6 @@ def schooladmin_page():
                     st.write("")
             st.write("Here is the end of the tutorials.")
 
-        st.markdown("[Download Template Excel file](https://drive.google.com/drive/folders/1Xx7lLQ2_Xgwcby4PrBGmwr2eKE-z8p4w)")
-
     if __name__ == '__main__':
         main()
 
@@ -486,8 +484,10 @@ else:
         st.write("Sign Up or Log in this web:")
         st.markdown("[🌐 shbinformation streamlit](https://shbinformation.streamlit.app/)")
         st.subheader("Third step")
-        st.write("Optional:")
-        st.write("🎥 Watch these tutorial videos to understand how to use this app:")
+        st.write("Create database properly. Use this template:")
+        st.markdown("[Download Template Excel file](https://drive.google.com/drive/folders/1Xx7lLQ2_Xgwcby4PrBGmwr2eKE-z8p4w)")
+        st.subheader("Furthermore")
+        st.write("(Optional). Watch these tutorial videos to understand how to use this app:")
         
         videos = [
             {"subheader": "Goal of this application", "url": "https://www.youtube.com/embed/X5FKgE2sJ3Q?si=xHLgbVSCbiPPQt3h"},
