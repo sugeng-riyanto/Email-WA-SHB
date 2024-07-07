@@ -63,10 +63,10 @@ def generate_unique_code():
 def sign_up():
     st.title("📝 Sign Up")
     schooladmin = st.text_input("📝 Full Name (Including Mr./Ms.)", placeholder="Full Name (Including Mr./Ms., Example: Mr. Tohari Putra)")
-    sender_number = st.text_input("📱 Active Whatsapp number(Example: 08122xxx)")
+    sender_number = st.text_input("📱 Active Whatsapp number(Example: 08122xxx)", placeholder="08122xxxxxxx")
     email_schooladmin = st.text_input("📧 Active Email, prefer using shb email", placeholder="xxx@shb.sch.id")
     password = st.text_input("🔒 Password", type="password",placeholder="Enter your password")
-    role = st.radio("Role", ["School Admin", "Academics VP", "Students VP", "Principal", "Cambridge Exam Officer","PIC","Subject Teacher", "Super Admin"], key="sign_up_role")
+    role = st.radio("👤 Role", ["School Admin", "Academics VP", "Students VP", "Principal", "Cambridge Exam Officer","PIC","Subject Teacher", "Super Admin"], key="sign_up_role")
     
     if st.button("Sign Up"):
         if not re.match(r"^[0-9]{10,15}$", sender_number):
@@ -402,7 +402,7 @@ def schooladmin_page():
         # Add icons to the sidebar menu
         menu_options = {
             "Home": "🏠 Home",
-            "Tutorial": "📖 Tutorial",
+            "Tutorial": "📚 Tutorial",
             "Invoice": "💸 Invoice",
             "Send Reminder": "⏰ Send Reminder",
             "Announcement": "📢 Announcement"
@@ -427,7 +427,7 @@ def schooladmin_page():
             handle_file_upload(proof_payment=True)
 
         elif choice == menu_options["Tutorial"]:
-            st.title("Tutorial")
+            st.title("📚 Tutorial")
             st.subheader("First step")
             st.write(f"""To access whatapp API, Visit this web then login:""")
             st.markdown("[wanotif.aaviaya.cloud/login](https://wanotif.aaviaya.cloud/login)")
@@ -468,13 +468,13 @@ if st.session_state['logged_in']:
     else:
         schooladmin_page()
 else:
-    choice = st.sidebar.selectbox("Choose Action", ["🔑 Sign In", "📝 Sign Up", "📖 Tutorial"], key="auth_action")
+    choice = st.sidebar.radio("Choose Action", ["🔑 Sign In", "📝 Sign Up", "📖 Tutorial"], key="auth_action")
     if choice == "🔑 Sign In":
         sign_in()
     elif choice == "📝 Sign Up":
         sign_up()
     else:
-        st.title("Tutorial")
+        st.title("📚 Tutorial")
         st.subheader("First step")
         st.write(f"""To access whatapp API, Visit this web then login:""")
         st.markdown("🌐 [wanotif.aaviaya.cloud/login](https://wanotif.aaviaya.cloud/login)")
