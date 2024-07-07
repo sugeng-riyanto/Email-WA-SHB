@@ -116,7 +116,7 @@ def sign_in():
                 st.session_state['role'] = user[5]
                 st.session_state['sender_number'] = user[2]
                 st.session_state['schooladmin'] = user[1]
-                st.success("✅ Sign in successful!, welcome {schooladmin} press Sign In button one more.")
+                st.success("✅ Sign in successfully, welcome back! Press Sign In button one more.")
             elif user[6] == unique_code:
                 cursor.execute("UPDATE users SET is_activated = 1 WHERE email_schooladmin = ?", (email_schooladmin,))
                 conn.commit()
@@ -124,7 +124,7 @@ def sign_in():
                 st.session_state['role'] = user[5]
                 st.session_state['sender_number'] = user[2]
                 st.session_state['schooladmin'] = user[1]
-                st.success("✅ Sign in successful!, welcome {schooladmin} press Sign In button one more.")
+                st.success("✅ Sign in successfully, welcome! Press Sign In button one more.")
             else:
                 st.error("❌ Invalid unique code.")
         else:
