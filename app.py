@@ -135,7 +135,7 @@ def sign_in():
     st.write("If you don't have an account, please click on the left sidebar to register your account.")
     st.title("Sign In")
     st.write("If you already have an account, you can sign in directly here. Good luck!")
-    email_schooladmin = st.text_input("{email_icon} Email", unsafe_allow_html=True)
+    email_schooladmin = st.text_input("{email_icon} Email")
     password = st.text_input("Password", type="password")
     unique_code = st.text_input("Unique Code")
     st.write("""<small>If you are logging in for the first time, enter the 6-digit code that has been sent to your email.
