@@ -11,6 +11,43 @@ from openpyxl import load_workbook
 import time
 import warnings
 import requests
+# Include FontAwesome library
+st.markdown('<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">', unsafe_allow_html=True)
+# CSS styles for colorful and 3D icons
+st.markdown("""
+    <style>
+    .icon {
+        font-size: 50px;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        transition: transform 0.3s;
+    }
+    .icon:hover {
+        transform: scale(1.2);
+    }
+    .sign-in { color: #1e90ff; }
+    .sign-up { color: #32cd32; }
+    .email { color: #ff4500; }
+    .password { color: #ffd700; }
+    .unique-code { color: #8a2be2; }
+    .full-name { color: #ff69b4; }
+    .whatsapp-number { color: #00ff00; }
+    .website { color: #00ced1; }
+    .youtube { color: #ff0000; }
+    .logout { color: #dc143c; }
+    </style>
+""", unsafe_allow_html=True)
+
+# Define HTML for icons with specific classes
+sign_in_icon = '<i class="fas fa-sign-in-alt icon sign-in"></i>'
+sign_up_icon = '<i class="fas fa-user-plus icon sign-up"></i>'
+email_icon = '<i class="fas fa-envelope icon email"></i>'
+password_icon = '<i class="fas fa-lock icon password"></i>'
+unique_code_icon = '<i class="fas fa-key icon unique-code"></i>'
+full_name_icon = '<i class="fas fa-user icon full-name"></i>'
+whatsapp_number_icon = '<i class="fas fa-phone icon whatsapp-number"></i>'
+website_icon = '<i class="fas fa-globe icon website"></i>'
+youtube_icon = '<i class="fab fa-youtube icon youtube"></i>'
+logout_icon = '<i class="fas fa-sign-out-alt icon logout"></i>'
 
 # Suppress specific warnings
 warnings.simplefilter(action='ignore', category=FutureWarning)
@@ -98,7 +135,7 @@ def sign_in():
     st.write("If you don't have an account, please click on the left sidebar to register your account.")
     st.title("Sign In")
     st.write("If you already have an account, you can sign in directly here. Good luck!")
-    email_schooladmin = st.text_input("Email")
+    email_schooladmin = st.text_input("{email_icon} Email", unsafe_allow_html=True)
     password = st.text_input("Password", type="password")
     unique_code = st.text_input("Unique Code")
     st.write("""<small>If you are logging in for the first time, enter the 6-digit code that has been sent to your email.
