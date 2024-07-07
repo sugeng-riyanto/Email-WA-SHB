@@ -94,7 +94,7 @@ def sign_up():
 def sign_in():
     st.title("Communication Channels")
     st.subheader("Email and WhatsApp Messaging for SHB Parents and Students")
-    st.write("Dear Colleagues, Welcome.")
+    st.write("Dear Colleagues, 👋 Welcome.")
     st.write("If you don't have an account, please click on the left sidebar to register your account.")
     st.title("🔑 Sign In")
     st.write("If you already have an account, you can sign in directly here. Good luck!")
@@ -192,7 +192,7 @@ def schooladmin_page():
     schooladmin = st.session_state['schooladmin']
     sender_number = st.session_state['sender_number']
     Role = st.session_state['role']
-    variable1 = "Welcome, "
+    variable1 = "👋 Welcome, "
     variable2 = schooladmin
     variable3 = "!"
     variable4=Role
@@ -411,34 +411,36 @@ def schooladmin_page():
         choice = st.sidebar.radio("Menu", [menu_options[option] for option in menu], key="main_menu")
 
         if choice == menu_options["Home"]:
-            st.subheader("Home")
+            st.subheader("🏠 Home")
             st.write("Welcome to the Communication Sender App!")
 
         elif choice == menu_options["Announcement"]:
-            st.subheader("Announcement")
+            st.subheader("📢 Announcement")
             handle_file_upload(announcement=True)
 
         elif choice == menu_options["Invoice"]:
-            st.subheader("Invoice")
+            st.subheader("💸 Invoice")
             handle_file_upload(invoice=True)
 
         elif choice == menu_options["Send Reminder"]:
-            st.subheader("Send Reminder")
+            st.subheader("⏰ Send Reminder")
             handle_file_upload(proof_payment=True)
 
         elif choice == menu_options["Tutorial"]:
             st.title("📚 Tutorial")
             st.subheader("First step")
             st.write(f"""To access whatapp API, Visit this web then login:""")
-            st.markdown("[wanotif.aaviaya.cloud/login](https://wanotif.aaviaya.cloud/login)")
+            st.markdown("🌐 [wanotif.aaviaya.cloud/login](https://wanotif.aaviaya.cloud/login)")
             st.write(f"""Connect your Whatsapp number by scanning QR. 
              Click triple dots on the right top corner your WA App, then select Linked devices.""")
             st.subheader("Second step")
             st.write("Sign Up or Log in this web:")
-            st.markdown("[shbinformation streamlit](https://shbinformation.streamlit.app/)")
+            st.markdown("🌐 [shbinformation streamlit](https://shbinformation.streamlit.app/)")
             st.subheader("Third step")
-            st.write("Optional:")
-            st.write("Watch these tutorial videos to understand how to use this app:")
+            st.write("Create database properly. Use this template:")
+            st.markdown("[Download Template Excel file](https://drive.google.com/drive/folders/1Xx7lLQ2_Xgwcby4PrBGmwr2eKE-z8p4w)")
+            st.subheader("Furthermore")
+            st.write("(Optional). Watch these tutorial videos to understand how to use this app:")
             
             videos = [
             {"subheader": "Goal of this application", "url": "https://www.youtube.com/embed/X5FKgE2sJ3Q?si=xHLgbVSCbiPPQt3h"},
@@ -482,7 +484,7 @@ else:
         Click triple dots on the right top corner your WA App, then select Linked devices.""")
         st.subheader("Second step")
         st.write("Sign Up or Log in this web:")
-        st.markdown("[shbinformation streamlit](https://shbinformation.streamlit.app/)")
+        st.markdown("[🌐 shbinformation streamlit](https://shbinformation.streamlit.app/)")
         st.subheader("Third step")
         st.write("Optional:")
         st.write("🎥 Watch these tutorial videos to understand how to use this app:")
