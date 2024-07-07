@@ -61,11 +61,11 @@ def generate_unique_code():
     return ''.join(random.choices('0123456789ABCDEF', k=6))
 
 def sign_up():
-    st.title("Sign Up")
-    schooladmin = st.text_input("📝 Full Name", placeholder="Full Name (Including Mr./Ms., Example: Mr. Tohari Putra)")
+    st.title("📝 Sign Up")
+    schooladmin = st.text_input("📝 Full Name (Including Mr./Ms.)", placeholder="Full Name (Including Mr./Ms., Example: Mr. Tohari Putra)")
     sender_number = st.text_input("📱 Active Whatsapp number(Example: 08122xxx)")
-    email_schooladmin = st.text_input("Active Email, prefer using shb email")
-    password = st.text_input("Password", type="password")
+    email_schooladmin = st.text_input("📧 Active Email, prefer using shb email", placeholder="xxx@shb.sch.id")
+    password = st.text_input("🔒 Password", type="password",placeholder="Enter your password")
     role = st.radio("Role", ["School Admin", "Academics VP", "Students VP", "Principal", "Cambridge Exam Officer","PIC","Subject Teacher", "Super Admin"], key="sign_up_role")
     
     if st.button("Sign Up"):
@@ -73,7 +73,7 @@ def sign_up():
             st.error("Invalid phone number. Please enter a valid phone number (10-15 digits).")
             return
         if not re.match(r"[^@]+@[^@]+\.[^@]+", email_schooladmin):
-            st.error("Invalid email address. Please enter a valid email address.")
+            st.error("❌ Invalid email address. Please enter a valid email address.")
             return
         
         unique_code = generate_unique_code()
@@ -96,11 +96,11 @@ def sign_in():
     st.subheader("Email and WhatsApp Messaging for SHB Parents and Students")
     st.write("Dear Colleagues, Welcome.")
     st.write("If you don't have an account, please click on the left sidebar to register your account.")
-    st.title("Sign In")
+    st.title("🔑 Sign In")
     st.write("If you already have an account, you can sign in directly here. Good luck!")
-    email_schooladmin = st.text_input("Email")
-    password = st.text_input("Password", type="password")
-    unique_code = st.text_input("Unique Code")
+    email_schooladmin = st.text_input("📧 Email", placeholder="Enter your email")
+    password = st.text_input("🔒 Password", type="password", placeholder="Enter your password")
+    unique_code = st.text_input("🆔 Unique Code", placeholder="Enter your unique code (6 Digits")
     st.write("""<small>If you are logging in for the first time, enter the 6-digit code that has been sent to your email.
     However, for subsequent logins, you can ignore the Unique Code menu.</small>""", unsafe_allow_html=True)
     
@@ -116,7 +116,7 @@ def sign_in():
                 st.session_state['role'] = user[5]
                 st.session_state['sender_number'] = user[2]
                 st.session_state['schooladmin'] = user[1]
-                st.success("Sign in successful!")
+                st.success("✅ Sign in successful!")
             elif user[6] == unique_code:
                 cursor.execute("UPDATE users SET is_activated = 1 WHERE email_schooladmin = ?", (email_schooladmin,))
                 conn.commit()
@@ -124,11 +124,11 @@ def sign_in():
                 st.session_state['role'] = user[5]
                 st.session_state['sender_number'] = user[2]
                 st.session_state['schooladmin'] = user[1]
-                st.success("Sign in successful!")
+                st.success("✅ Sign in successful!")
             else:
-                st.error("Invalid unique code.")
+                st.error("❌ Invalid unique code.")
         else:
-            st.error("Invalid credentials.")
+            st.error("❌ Invalid credentials.")
         conn.close()
 
 if 'logged_in' not in st.session_state:
@@ -186,8 +186,8 @@ def superadmin_page():
     conn.close()
 
 def schooladmin_page():
-    st.write("You are logged in successfully")
-    st.sidebar.button("Log Out", on_click=lambda: st.session_state.update({'logged_in': False}))
+    st.write("You are logged in successfully ✅")
+    st.sidebar.button("🚪 Log Out", on_click=lambda: st.session_state.update({'logged_in': False}))
     
     schooladmin = st.session_state['schooladmin']
     sender_number = st.session_state['sender_number']
@@ -264,11 +264,11 @@ def schooladmin_page():
             try:
                 response = requests.get(url)
                 if response.status_code == 200:
-                    st.success(f"Message sent successfully to {phone_number}")
+                    st.success(f"✅ Message sent successfully to {phone_number}")
                 else:
-                    st.error(f"Failed to send message to {phone_number}: {response.text}")
+                    st.error(f"❌Failed to send message to {phone_number}: {response.text}")
             except Exception as e:
-                st.error(f"Failed to send message to {phone_number}: {str(e)}")
+                st.error(f"❌Failed to send message to {phone_number}: {str(e)}")
 
     # Ensure your DataFrame and main application logic
 
@@ -371,9 +371,9 @@ def schooladmin_page():
 
             try:
                 server.sendmail(your_email, email, msg.as_string())
-                st.success(f'Email {idx + 1} to {email} successfully sent!')
+                st.success(f'✅ Email {idx + 1} to {email} successfully sent!')
             except Exception as e:
-                st.error(f'Failed to send email {idx + 1} to {email}: {e}')
+                st.error(f'❌ Failed to send email {idx + 1} to {email}: {e}')
 
     def handle_file_upload(announcement=False, invoice=False, proof_payment=False):
         uploaded_file = st.file_uploader("Upload Excel file", type="xlsx")
@@ -431,7 +431,7 @@ def schooladmin_page():
             st.subheader("First step")
             st.write(f"""To access whatapp API, Visit this web then login:""")
             st.markdown("[wanotif.aaviaya.cloud/login](https://wanotif.aaviaya.cloud/login)")
-            st.write(f"""connect your Whatsapp number by scanning QR. 
+            st.write(f"""Connect your Whatsapp number by scanning QR. 
              Click triple dots on the right top corner your WA App, then select Linked devices.""")
             st.subheader("Second step")
             st.write("Sign Up or Log in this web:")
@@ -477,15 +477,15 @@ else:
         st.title("Tutorial")
         st.subheader("First step")
         st.write(f"""To access whatapp API, Visit this web then login:""")
-        st.markdown("[wanotif.aaviaya.cloud/login](https://wanotif.aaviaya.cloud/login)")
-        st.write(f"""connect your Whatsapp number by scanning QR. 
+        st.markdown("🌐 [wanotif.aaviaya.cloud/login](https://wanotif.aaviaya.cloud/login)")
+        st.write(f"""Connect your Whatsapp number by scanning QR. 
         Click triple dots on the right top corner your WA App, then select Linked devices.""")
         st.subheader("Second step")
         st.write("Sign Up or Log in this web:")
         st.markdown("[shbinformation streamlit](https://shbinformation.streamlit.app/)")
         st.subheader("Third step")
         st.write("Optional:")
-        st.write("Watch these tutorial videos to understand how to use this app:")
+        st.write("🎥 Watch these tutorial videos to understand how to use this app:")
         
         videos = [
             {"subheader": "Goal of this application", "url": "https://www.youtube.com/embed/X5FKgE2sJ3Q?si=xHLgbVSCbiPPQt3h"},
