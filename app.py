@@ -100,7 +100,7 @@ def sign_in():
     st.write("If you already have an account, you can sign in directly here. Good luck!")
     email_schooladmin = st.text_input("📧 Email", placeholder="Enter your email")
     password = st.text_input("🔒 Password", type="password", placeholder="Enter your password")
-    unique_code = st.text_input("🆔 Unique Code", placeholder="Enter your unique code (6 Digits")
+    unique_code = st.text_input("🆔 Unique Code", placeholder="Mandatory for first-time login. Enter your unique code (6 Digits)")
     st.write("""<small>If you are logging in for the first time, enter the 6-digit code that has been sent to your email.
     However, for subsequent logins, you can ignore the Unique Code menu.</small>""", unsafe_allow_html=True)
     
