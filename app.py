@@ -11,43 +11,6 @@ from openpyxl import load_workbook
 import time
 import warnings
 import requests
-# Include FontAwesome library
-st.markdown('<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">', unsafe_allow_html=True)
-# CSS styles for colorful and 3D icons
-st.markdown("""
-    <style>
-    .icon {
-        font-size: 50px;
-        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-        transition: transform 0.3s;
-    }
-    .icon:hover {
-        transform: scale(1.2);
-    }
-    .sign-in { color: #1e90ff; }
-    .sign-up { color: #32cd32; }
-    .email { color: #ff4500; }
-    .password { color: #ffd700; }
-    .unique-code { color: #8a2be2; }
-    .full-name { color: #ff69b4; }
-    .whatsapp-number { color: #00ff00; }
-    .website { color: #00ced1; }
-    .youtube { color: #ff0000; }
-    .logout { color: #dc143c; }
-    </style>
-""", unsafe_allow_html=True)
-
-# Define HTML for icons with specific classes
-sign_in_icon = '<i class="fas fa-sign-in-alt icon sign-in"></i>'
-sign_up_icon = '<i class="fas fa-user-plus icon sign-up"></i>'
-email_icon = '<i class="fas fa-envelope icon email"></i>'
-password_icon = '<i class="fas fa-lock icon password"></i>'
-unique_code_icon = '<i class="fas fa-key icon unique-code"></i>'
-full_name_icon = '<i class="fas fa-user icon full-name"></i>'
-whatsapp_number_icon = '<i class="fas fa-phone icon whatsapp-number"></i>'
-website_icon = '<i class="fas fa-globe icon website"></i>'
-youtube_icon = '<i class="fab fa-youtube icon youtube"></i>'
-logout_icon = '<i class="fas fa-sign-out-alt icon logout"></i>'
 
 # Suppress specific warnings
 warnings.simplefilter(action='ignore', category=FutureWarning)
@@ -99,8 +62,8 @@ def generate_unique_code():
 
 def sign_up():
     st.title("Sign Up")
-    schooladmin = st.text_input("Full Name (Including Mr./Ms., Example: Mr. Tohari Putra)")
-    sender_number = st.text_input("Active Whatsapp number(Example: 08122xxx)")
+    schooladmin = st.text_input("📝 Full Name", placeholder="Full Name (Including Mr./Ms., Example: Mr. Tohari Putra)")
+    sender_number = st.text_input("📱 Active Whatsapp number(Example: 08122xxx)")
     email_schooladmin = st.text_input("Active Email, prefer using shb email")
     password = st.text_input("Password", type="password")
     role = st.radio("Role", ["School Admin", "Academics VP", "Students VP", "Principal", "Cambridge Exam Officer","PIC","Subject Teacher", "Super Admin"], key="sign_up_role")
