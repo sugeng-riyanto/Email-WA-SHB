@@ -371,7 +371,7 @@ def schooladmin_page():
 
             try:
                 server.sendmail(your_email, email, msg.as_string())
-                st.success(f'✅ Email {idx + 1} to {email} successfully sent!')
+                st.success(f'✅ Email {idx + 1} to {email} sent successfully!')
             except Exception as e:
                 st.error(f'❌ Failed to send email {idx + 1} to {email}: {e}')
 
@@ -430,7 +430,7 @@ def schooladmin_page():
         elif choice == menu_options["Tutorial"]:
             st.title("📚 Tutorial")
             st.subheader("First step")
-            st.write(f"""To access whatapp API, Visit this web then login:""")
+            st.write(f"""Visit this web then login to access whatapp API:""")
             st.markdown("🌐 [wanotif.aaviaya.cloud/login](https://wanotif.aaviaya.cloud/login)")
             st.write(f"""Connect your Whatsapp number by scanning QR. 
              Click triple dots on the right top corner your WA App, then select Linked devices.""")
@@ -477,7 +477,7 @@ else:
     else:
         st.title("📚 Tutorial")
         st.subheader("First step")
-        st.write(f"""To access whatapp API, Visit this web then login:""")
+        st.write(f"""Visit this web then login to access whatapp API:""")
         st.markdown("🌐 [wanotif.aaviaya.cloud/login](https://wanotif.aaviaya.cloud/login)")
         st.write(f"""Connect your Whatsapp number by scanning QR. 
         Click triple dots on the right top corner your WA App, then select Linked devices.""")
