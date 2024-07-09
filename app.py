@@ -410,9 +410,9 @@ def schooladmin_page():
             "Announcement": "📢 Announcement"
         }
 
-        choice = option_menu(None, [menu_options[option] for option in menu],
+        choice = option_menu("Main Menu", [menu_options[option] for option in menu],
                              icons=['house', 'book', 'cash', 'clock', 'megaphone'],
-                             menu_icon="cast", default_index=0, orientation="horizontal")
+                             menu_icon="cast", default_index=0, orientation="vertical")
 
         if choice == menu_options["Home"]:
             st.subheader("🏠 Home")
@@ -473,7 +473,7 @@ if st.session_state['logged_in']:
         schooladmin_page()
 else:
     choice = option_menu("Main Menu", ["🔑 Sign In", "📝 Sign Up", "📖 Tutorial"],
-                         icons=['key', 'pencil', 'book'], menu_icon="cast", default_index=0)
+                         icons=['key', 'pencil', 'book'], menu_icon="cast", default_index=0, orientation="vertical")
     if choice == "🔑 Sign In":
         sign_in()
     elif choice == "📝 Sign Up":
