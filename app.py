@@ -97,7 +97,7 @@ def sign_in():
     st.write("Dear Colleagues, 👋 Welcome.")
     st.write("If you don't have an account, please click on the left sidebar to register your account.")
     st.title("🔑 Sign In")
-    st.write("If you already have an account, you can sign in directly here. Good luck!")
+    st.write("If you already have an account, you can sign in directly here.")
     email_schooladmin = st.text_input("📧 Email", placeholder="Enter your email")
     password = st.text_input("🔒 Password", type="password", placeholder="Enter your password")
     unique_code = st.text_input("🆔 Unique Code", placeholder="Mandatory for first-time login. Enter your unique code (6 Digits)")
@@ -389,7 +389,8 @@ def schooladmin_page():
                 send_whatsapp_messages(df, announcement, invoice, proof_payment)
 
     def main():
-        st.header('Sending emails and WhatsApp messages to parents/students at SHB')
+        st.write('Sending emails and WhatsApp messages to parents/students at SHB')
+        st.markdown("[Download Template Excel file](https://drive.google.com/drive/folders/1Xx7lLQ2_Xgwcby4PrBGmwr2eKE-z8p4w)")
 
         role = st.session_state['role']
         menu = ["Home", "Tutorial"]
