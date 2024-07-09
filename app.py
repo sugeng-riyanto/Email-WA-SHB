@@ -409,7 +409,7 @@ def schooladmin_page():
             "Announcement": "📢 Announcement"
         }
 
-        choice = st.sidebar.radio("Menu", [menu_options[option] for option in menu], key="main_menu")
+        choice = st.sidebar.option_menu("Menu", [menu_options[option] for option in menu], key="main_menu")
 
         if choice == menu_options["Home"]:
             st.subheader("🏠 Home")
