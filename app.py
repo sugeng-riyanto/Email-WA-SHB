@@ -11,6 +11,7 @@ from openpyxl import load_workbook
 import time
 import warnings
 import requests
+from streamlit_option_menu import option_menu
 
 # Suppress specific warnings
 warnings.simplefilter(action='ignore', category=FutureWarning)
@@ -52,7 +53,7 @@ def send_email(to_email, code):
     msg['From'] = your_email
     msg['To'] = to_email
     msg['Subject'] = "Your Unique Sign-In Code"
-    body = f"Your unique sign-in code is:{code}"
+    body = f"Your unique sign-in code is: {code}"
     msg.attach(MIMEText(body, 'plain'))
     
     server.sendmail(your_email, to_email, msg.as_string())
@@ -65,8 +66,8 @@ def sign_up():
     schooladmin = st.text_input("📝 Full Name (Including Mr./Ms.)", placeholder="Full Name (Including Mr./Ms., Example: Mr. Tohari Putra)")
     sender_number = st.text_input("📱 Active Whatsapp number(Example: 08122xxx)", placeholder="08122xxxxxxx")
     email_schooladmin = st.text_input("📧 Active Email, prefer using shb email", placeholder="xxx@shb.sch.id")
-    password = st.text_input("🔒 Password", type="password",placeholder="Enter your password")
-    role = st.radio("👤 Role", ["School Admin", "Academics VP", "Students VP", "Principal", "Cambridge Exam Officer","PIC","Subject Teacher", "Super Admin"], key="sign_up_role")
+    password = st.text_input("🔒 Password", type="password", placeholder="Enter your password")
+    role = st.radio("👤 Role", ["School Admin", "Academics VP", "Students VP", "Principal", "Cambridge Exam Officer", "PIC", "Subject Teacher", "Super Admin"], key="sign_up_role")
     
     if st.button("Sign Up"):
         if not re.match(r"^[0-9]{10,15}$", sender_number):
@@ -162,7 +163,7 @@ def superadmin_page():
     sender_number = st.text_input("Sender Number")
     email_schooladmin = st.text_input("Email")
     password = st.text_input("Password", type="password")
-    role = st.radio("Role", ["schooladmin", "Academics VP", "Students VP", "Principal", "Cambridge Exam Officer","PIC","Subject Teacher", "superadmin"], key="superadmin_add_role")
+    role = st.radio("Role", ["schooladmin", "Academics VP", "Students VP", "Principal", "Cambridge Exam Officer", "PIC", "Subject Teacher", "superadmin"], key="superadmin_add_role")
     unique_code = generate_unique_code()
     
     if st.button("Add/Update User"):
@@ -195,7 +196,7 @@ def schooladmin_page():
     variable1 = "👋 Welcome, "
     variable2 = schooladmin
     variable3 = "!"
-    variable4=Role
+    variable4 = Role
     st.subheader(f"{variable1} {variable2}{variable3}")
     st.write(f"You are as {variable4}.")
     # Utility function to check allowed file extensions
@@ -395,9 +396,9 @@ def schooladmin_page():
         role = st.session_state['role']
         menu = ["Home", "Tutorial"]
 
-        if role in ["School Admin", "Super Admin","schooladmin","superadmin"]:
+        if role in ["School Admin", "Super Admin", "schooladmin", "superadmin"]:
             menu.extend(["Invoice", "Send Reminder", "Announcement"])
-        elif role in ["Academics VP", "Students VP", "Principal", "Cambridge Exam Officer","PIC","Subject Teacher"]:
+        elif role in ["Academics VP", "Students VP", "Principal", "Cambridge Exam Officer", "PIC", "Subject Teacher"]:
             menu.append("Announcement")
 
         # Add icons to the sidebar menu
@@ -409,7 +410,9 @@ def schooladmin_page():
             "Announcement": "📢 Announcement"
         }
 
-        choice = st.sidebar.radio("Menu", [menu_options[option] for option in menu], key="main_menu")
+        choice = option_menu(None, [menu_options[option] for option in menu],
+                             icons=['house', 'book', 'cash', 'clock', 'megaphone'],
+                             menu_icon="cast", default_index=0, orientation="horizontal")
 
         if choice == menu_options["Home"]:
             st.subheader("🏠 Home")
@@ -469,7 +472,8 @@ if st.session_state['logged_in']:
     else:
         schooladmin_page()
 else:
-    choice = st.sidebar.radio("Choose Action", ["🔑 Sign In", "📝 Sign Up", "📖 Tutorial"], key="auth_action")
+    choice = option_menu("Main Menu", ["🔑 Sign In", "📝 Sign Up", "📖 Tutorial"],
+                         icons=['key', 'pencil', 'book'], menu_icon="cast", default_index=0)
     if choice == "🔑 Sign In":
         sign_in()
     elif choice == "📝 Sign Up":
