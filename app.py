@@ -323,9 +323,9 @@ def schooladmin_page():
                 <p>{Role}</p>
                 Catatan:
                 <ul>
-                 <li>Bila Ibu/Bapak sudah melakukan pembayaran, mohon <strong>abaikan</strong> pesan ini.</li>
+                 <li>Jika Ibu/Bapak sudah melakukan pembayaran, mohon <strong>abaikan</strong> pesan ini.</li>
                  <li>Jika ada pertanyaan atau hendak konfirmasi dapat menghubungi {schooladmin}:<a href="https://wa.me/62{sender_number}?text=Yth%20{schooladmin}%0ASaya%20mau%20bertanya%20atau%20konfirmasi%20perihal%3A%0A...%0ADemikian%20dan%20terima%20kasih.">Click Nomor Whatsapp ini.</a></li>
-                <ul>
+                </ul>
                 """
             elif proof_payment:
                 subject = entry['Subject']
