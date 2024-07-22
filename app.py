@@ -247,6 +247,7 @@ def schooladmin_page():
      • *SPP yang sedang berjalan:* Rp {row['bulan_berjalan']:,.2f} ({row['Ket_1']})
      • *Denda:* Rp {row['Denda']:,.2f} ({row['Ket_2']})
      • *SPP bulan-bulan sebelumnya:* Rp {row['SPP_30hari']:,.2f} ({row['Ket_3']})
+     • *Virtual Account (VA)/No. Akun Bank::* {row['virtual_account']}
      • *Keterangan:* {row['Ket_4']}
      • Total tagihan: Rp *{row['Total']:,.2f}*
     Jika ada pertanyaan atau hendak konfirmasi dapat menghubungi {schooladmin}: https://wa.me/62{sender_number}
@@ -348,6 +349,7 @@ def schooladmin_page():
                  <li><strong>SPP yang sedang berjalan:</strong> Rp. {sppbuljal} ({ket1})</li>
                  <li><strong>Denda:</strong> Rp. {denda} ({ket2})</li>
                  <li><strong>SPP bulan-bulan sebelumnya:</strong> Rp. {spplebih} ({ket3})</li>
+                 <li><strong>Virtual Account (VA)/No. Akun Bank:</strong>{va}</li>                 
                  <li><strong>Keterangan:</strong> {ket4}</li>
                  <li><strong>Total tagihan:</strong> Rp. {total}</li>
                 </ul>
