@@ -231,14 +231,14 @@ def schooladmin_page():
      • *Batas Tanggal Pembayaran:* {row['expired_date']}
      • *Sebesar:* Rp. {row['trx_amount']:,.2f}
      • *Pembayaran via nomor virtual account (VA) BNI/Bank:* {row['virtual_account']}
-    Jika ada pertanyaan atau hendak konfirmasi dapat menghubungi {schooladmin}: https://wa.me/62{sender_number}
+    Untuk pertanyaan lebih lanjut atau hendak konfirmasi dapat menghubungi {schooladmin}: https://wa.me/62{sender_number}
     Terima kasih atas kerjasamanya.
     
     ttd
     *{Role}*
         
     *Catatan:*
-    Bila Ibu/Bapak sudah melakukan pembayaran, mohon *abaikan* pesan ini.
+    Jika Ibu/Bapak sudah melakukan pembayaran, mohon *abaikan* pesan ini.
      """
             elif proof_payment:
                 message = f"""
@@ -324,7 +324,7 @@ def schooladmin_page():
                 Catatan:
                 <ul>
                  <li>Jika Ibu/Bapak sudah melakukan pembayaran, mohon <strong>abaikan</strong> pesan ini.</li>
-                 <li>Jika ada pertanyaan atau hendak konfirmasi dapat menghubungi {schooladmin}:<a href="https://wa.me/62{sender_number}?text=Yth%20{schooladmin}%0ASaya%20mau%20bertanya%20atau%20konfirmasi%20perihal%3A%0A...%0ADemikian%20dan%20terima%20kasih.">Click Nomor Whatsapp ini.</a></li>
+                 <li>Untuk pertanyaan lebih lanjut atau hendak konfirmasi dapat menghubungi {schooladmin}:<a href="https://wa.me/62{sender_number}?text=Yth%20{schooladmin}%0ASaya%20mau%20bertanya%20atau%20konfirmasi%20perihal%3A%0A...%0ADemikian%20dan%20terima%20kasih.">Click Nomor Whatsapp ini.</a></li>
                 </ul>
                 """
             elif proof_payment:
@@ -358,9 +358,9 @@ def schooladmin_page():
                 
                 Catatan:
                 <ul>
-                <li>Bila Ibu/Bapak sudah melakukan pembayaran, mohon <strong>abaikan</strong> pesan ini.</li>
-                <li>Jika ada pertanyaan atau hendak konfirmasi dapat menghubungi {schooladmin}:<a href="https://wa.me/62{sender_number}?text=Yth%20{schooladmin}%0ASaya%20mau%20bertanya%20atau%20konfirmasi%20perihal%3A%0A...%0ADemikian%20dan%20terima%20kasih.">Click No. Whatsapp ini.</a><li>
-                <ul>
+                <li>JIka Ibu/Bapak sudah melakukan pembayaran, mohon <strong>abaikan</strong> pesan ini.</li>
+                <li>Untuk pertanyaan lebih lanjut atau hendak konfirmasi dapat menghubungi {schooladmin}:<a href="https://wa.me/62{sender_number}?text=Yth%20{schooladmin}%0ASaya%20mau%20bertanya%20atau%20konfirmasi%20perihal%3A%0A...%0ADemikian%20dan%20terima%20kasih.">Click No. Whatsapp ini.</a><li>
+                </ul>
                 """
             else:
                 continue
