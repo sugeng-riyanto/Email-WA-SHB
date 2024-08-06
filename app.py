@@ -229,7 +229,7 @@ def schooladmin_page():
     Kami hendak menyampaikan info mengenai:
      • *Subject:* {row['Subject']}
      • *Batas Tanggal Pembayaran:* {row['expired_date']}
-     • *Sebesar:* Rp. {row['trx_amount']:,.2f}
+     • *Sebesar:* Rp. {row['trx_amount']:,.0f}
      • *Pembayaran via nomor virtual account (VA) BNI/Bank:* {row['virtual_account']}
     Untuk pertanyaan lebih lanjut atau hendak konfirmasi dapat menghubungi {schooladmin}: https://wa.me/62{sender_number}
     Terima kasih atas kerjasamanya.
@@ -244,12 +244,12 @@ def schooladmin_page():
                 message = f"""
                 Kepada Yth. Orang Tua/Wali Murid *{row['Nama_Siswa']}* (Kelas *{row['Grade']}*),
     Kami hendak menyampaikan info mengenai SPP:
-     • *SPP yang sedang berjalan:* Rp {row['bulan_berjalan']:,.2f} ({row['Ket_1']})
-     • *Denda:* Rp {row['Denda']:,.2f} ({row['Ket_2']})
-     • *SPP bulan-bulan sebelumnya:* Rp {row['SPP_30hari']:,.2f} ({row['Ket_3']})
+     • *SPP yang sedang berjalan:* Rp {row['bulan_berjalan']:,.0f} ({row['Ket_1']})
+     • *Denda:* Rp {row['Denda']:,.0f} ({row['Ket_2']})
+     • *SPP bulan-bulan sebelumnya:* Rp {row['SPP_30hari']:,.0f} ({row['Ket_3']})
      • *Virtual Account (VA)/No. Akun Bank:* {row['virtual_account']}
      • *Keterangan:* {row['Ket_4']}
-     • Total tagihan: Rp *{row['Total']:,.2f}*
+     • Total tagihan: Rp *{row['Total']:,.0f}*
     Jika ada pertanyaan atau hendak konfirmasi dapat menghubungi {schooladmin}: https://wa.me/62{sender_number}
     Terima kasih atas kerjasamanya.
     
@@ -304,7 +304,7 @@ def schooladmin_page():
                 va = entry['virtual_account']
                 name = entry['customer_name']
                 email = entry['customer_email']
-                nominal = "{:,.2f}".format(entry['trx_amount'])
+                nominal = "{:,.0f}".format(entry['trx_amount'])
                 expired_date = entry['expired_date']
                 expired_time = entry['expired_time']
                 description = entry['description']
@@ -333,14 +333,14 @@ def schooladmin_page():
                 name = entry['Nama_Siswa']
                 email = entry['Email']
                 grade = entry['Grade']
-                sppbuljal = "{:,.2f}".format(entry['bulan_berjalan'])
+                sppbuljal = "{:,.0f}".format(entry['bulan_berjalan'])
                 ket1 = entry['Ket_1']
-                spplebih = "{:,.2f}".format(entry['SPP_30hari'])
+                spplebih = "{:,.0f}".format(entry['SPP_30hari'])
                 ket2 = entry['Ket_2']
-                denda = "{:,.2f}".format(entry['Denda'])
+                denda = "{:,.0f}".format(entry['Denda'])
                 ket3 =  entry['Ket_3']
                 ket4 = entry['Ket_4']
-                total = "{:,.2f}".format(entry['Total'])
+                total = "{:,.0f}".format(entry['Total'])
                 message = f"""
                 Kepada Yth.<br>Orang Tua/Wali Murid <span style="color: #007bff;">{name}</span> (Kelas <span style="color: #007bff;">{grade}</span>)<br>
                 <p>Salam Hormat,</p>
