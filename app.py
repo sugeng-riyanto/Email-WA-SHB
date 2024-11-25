@@ -260,7 +260,7 @@ def schooladmin_page():
                 continue
 
 
-            url = f"https://wanotif.shb.my.id/send-message?api_key={api_key}&sender={sender_number}&number={phone_number}&message={requests.utils.quote(message)}"
+            url = f"https://wanotif.shb.sch.id/send-message?api_key={api_key}&sender={sender_number}&number={phone_number}&message={requests.utils.quote(message)}"
 
             try:
                 response = requests.get(url)
@@ -433,7 +433,7 @@ def schooladmin_page():
             st.title("📚 Tutorial")
             st.subheader("First step")
             st.write(f"""Visit this web then login to access whatapp API:""")
-            st.markdown("🌐 [https://wanotif.shb.my.id/](https://wanotif.shb.my.id/)")
+            st.markdown("🌐 [https://wanotif.shb.sch.id/](https://wanotif.shb.sch.id/)")
             st.write(f"""Connect your Whatsapp number by scanning QR. 
              Click triple dots on the right top corner your WA App, then select Linked devices.""")
             st.subheader("Second step")
@@ -480,7 +480,7 @@ else:
         st.title("📚 Tutorial")
         st.subheader("First step")
         st.write(f"""Visit this web then login to access whatapp API:""")
-        st.markdown("🌐 [https://wanotif.shb.my.id/](https://wanotif.shb.my.id/)")
+        st.markdown("🌐 [https://wanotif.shb.sch.id/](https://wanotif.shb.sch.id/)")
         st.write(f"""Connect your Whatsapp number by scanning QR. 
         Click triple dots on the right top corner your WA App, then select Linked devices.""")
         st.subheader("Second step")
