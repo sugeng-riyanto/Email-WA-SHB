@@ -209,7 +209,8 @@ def schooladmin_page():
         for index, row in data.iterrows():
             phone_number = str(row['Phone Number'])
             if not phone_number.startswith('0'):
-                phone_number = f'0{phone_number.lstrip("0")}'
+                #phone_number = f'0{phone_number.lstrip("0")}'
+                phone_number = f'62{phone_number.lstrip("0")}'
 
             if announcement:
                 message = f"""
