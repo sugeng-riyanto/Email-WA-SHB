@@ -20,8 +20,7 @@ your_name = st.secrets["your_name"]
 your_email = st.secrets["your_email"]
 your_password = st.secrets["your_password"]
 #
-api_key="mcg7gReChtZvYGB3tkCRerdnUI1Kyq"
-#api_key = st.secrets["api_key"]
+api_key = st.secrets["api_key"]
 
 # SMTP configuration
 server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
