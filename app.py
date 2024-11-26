@@ -263,14 +263,17 @@ def schooladmin_page():
 
             url = f"https://wanotif.shb.sch.id/send-message?api_key={api_key}&sender={sender_number}&number={phone_number}&message={requests.utils.quote(message)}"
 
-            try:
-                response = requests.get(url)
-                if response.status_code == 200:
-                    st.success(f"✅ Message sent successfully to {phone_number}")
-                else:
-                    st.error(f"❌Failed to send message to {phone_number}: {response.text}")
-            except Exception as e:
-                st.error(f"❌Failed to send message to {phone_number}: {str(e)}")
+            max_retries = 3
+            for attempt in range(max_retries):
+                try:
+
+                    response = requests.get(url)
+                    if response.status_code == 200:
+                        st.success(f"✅ Message sent successfully to {phone_number}")
+                    else:
+                        st.error(f"❌Failed to send message to {phone_number}: {response.text}")
+                except Exception as e:
+                    st.error(f"❌Failed to send message to {phone_number}: {str(e)}")
 
     # Ensure your DataFrame and main application logic
 
