@@ -11,6 +11,7 @@ from openpyxl import load_workbook
 import time
 import warnings
 import requests
+import logging
 
 # Suppress specific warnings
 warnings.simplefilter(action='ignore', category=FutureWarning)
@@ -267,14 +268,21 @@ def schooladmin_page():
             max_retries = 3
             for attempt in range(max_retries):
                 try:
-
+                    logging.info(f"Attempting to send message to {phone_number}... (Attempt {attempt + 1}/{max_retries})")
+                    response = requests.get(url, timeout=10)  # Set a timeout
                     response = requests.get(url)
                     if response.status_code == 200:
+                        logging.info(f"Message sent successfully to {phone_number}")
                         st.success(f"✅ Message sent successfully to {phone_number}")
                     else:
+                        logging.error(f"Failed to send message to {phone_number}: {response.status_code} - {response.text}")
                         st.error(f"❌Failed to send message to {phone_number}: {response.text}")
-                except Exception as e:
-                    st.error(f"❌Failed to send message to {phone_number}: {str(e)}")
+                except requests.exceptions.RequestException as e:
+                    logging.error(f"Request failed for {phone_number} on attempt {attempt + 1}: {e}")
+                    if attempt < max_retries - 1:
+                        time.sleep(2)  # Wait before retrying
+                    else:
+                        st.error(f"❌ Failed to send message to {phone_number} after {max_retries} attempts.")
 
     # Ensure your DataFrame and main application logic
 
