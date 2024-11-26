@@ -263,7 +263,10 @@ def schooladmin_page():
                 continue
 
 
-            url = f"https://wanotif.shb.sch.id/send-message?api_key={api_key}&sender={sender_number}&number={phone_number}&message={requests.utils.quote(message)}"
+            # Encode the message
+            encoded_message = requests.utils.quote(message)
+            url = f"https://wanotif.shb.sch.id/send-message?api_key={api_key}&sender={sender_number}&number={phone_number}&message={encoded_message}"
+            st.write(f"Constructed URL: {url}")
 
             max_retries = 3
             for attempt in range(max_retries):
